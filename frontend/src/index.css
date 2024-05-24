@@ -1,13 +1,271 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import "@fontsource/roboto/300.css";
+@import "@fontsource/roboto/400.css";
+@import "@fontsource/roboto/500.css";
+@import "@fontsource/roboto/700.css";
+
+* {
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+}
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+.app {
+  width: 100vw;
+  min-height: 100vh;
+  background-color: #400e32;
+  color: white;
+}
+
+.registerpage {
+  padding-inline: 200px;
+  padding-top: 64px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid white;
+}
+.progressBar {
+  border: 1px solid white;
+  padding-block: 12px;
+}
+.mainContent {
+  min-height: 600px;
+  border: 1px solid white;
+  padding-block: 32px;
+}
+.mainContent__header {
+  /* border: 1px solid white; */
+  display: flex;
+  gap: 8px;
+  flex-direction: column;
+  width: 100%;
+}
+.mainContent__header-stepname {
+  font-size: 36px;
+  font-weight: 800;
+  color: #f2cd5c;
+}
+.mainContent__header-explain {
+  font-size: 20px;
+}
+.mainContent__body {
+  /* border: 1px solid white; */
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-block: 40px;
+}
+
+.mainContent_body-title {
+  font-size: 20px;
+  font-weight: 800;
+  color: #f2cd5c;
+}
+
+.mainContent__body-connectwallet {
+  width: 400px;
+  height: 64px;
+  background-color: #a61f69;
+  border-radius: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.mainContent__body-imageUploadForm {
+  background-color: azure;
+  display: flex;
+}
+.mainContent__body-uploadFile {
+  color: #400e32;
+}
+.mainContent__body-assetList {
+  display: flex;
+  flex-direction: column;
+}
+.mainContent__body-asset {
+  width: 400px;
+  height: 64px;
+  padding-inline: 40px;
+  margin-block: 8px;
+  background-color: #f2cd5c;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #400e32;
+}
+.mainContent__footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.mainContent__setPrice {
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-block: 40px;
+}
+
+.mainContent_setPrice-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border: 2px solid white;
+  border-radius: 16px;
+  padding: 24px;
+}
+.setPrice__subcontainer_head {
+  height: 64px;
+  display: flex;
+  align-items: center;
+}
+.setPrice__subcontainer {
+  /* border: 0.5px solid white; */
+  height: 64px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.setPrice__subcontainer-sub {
+  display: flex;
+}
+
+.setPrice__subcontainer-item {
+  /* border: 0.5px solid white; */
+  width: 200px;
+  height: 40px;
+  font-size: 20px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.setPrice__subcontainer-item-sm {
+  width: 40px;
+  font-size: 20px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.nav-menu {
+  display: flex;
+}
+.actionBtn {
+  height: 36px;
+  /* width: 120px; */
+  padding-inline: 16px;
+  background-color: #f2cd5c;
+  color: #400e32;
+  font-weight: 600;
+  border-radius: 8px;
+}
+.hide {
+  display: none;
+}
+.actionBtn_ghost {
+  height: 36px;
+  width: 120px;
+  background-color: none;
+  color: #f2cd5c;
+  border: 1px solid #f2cd5c;
+  border-radius: 8px;
+}
+.confirmBtn {
+  min-width: 200px;
+  height: 64px;
+  background-color: #f2cd5c;
+  font-size: 20px;
+  font-weight: 600;
+  color: #400e32;
+  padding: 8px 24px;
+  border-radius: 16px;
+}
+.confirmBtn-disabled {
+  display: none;
+}
+.confirmBtn-ghost {
+  min-width: 200px;
+  height: 64px;
+  background-color: none;
+  font-size: 20px;
+  font-weight: 600;
+  color: #f2cd5c;
+  padding: 8px 24px;
+  border: 1px solid #f2cd5c;
+  border-radius: 16px;
+}
+.assetLogo {
+  width: 40px;
+  height: 40px;
+}
+
+.priceForm {
+  border: 1px white solid;
+  width: 600px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.pricePoint {
+  display: flex;
+  flex-direction: row;
+  padding: 24px;
+}
+
+/* .priceForm__calculatedprice {
+} */
+.priceForm_submitBtn {
+  background-color: #f2cd5c;
+  color: #400e32;
+}
+
+.mainContent__body-imageWrapper {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+.finalImage_container {
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  margin: 8px;
+  box-shadow: 10px 10px 5px -4px rgba(0, 0, 0, 0.75);
+}
+.finalImage_info {
+  padding-block: 16px;
+  background-color: #a61f69;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  border-radius: 0px 0px 16px 16px;
+}
+.final_image {
+  width: 300px;
+  aspect-ratio: 1/1;
+  border-radius: 16px 16px 0px 0px;
 }
