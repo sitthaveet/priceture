@@ -54,7 +54,6 @@ function ImageUploadForm({ pageCount, setPageCount }) {
       const imageRef = ref(storage, `images/${imageName}`);
       try {
         await uploadBytes(imageRef, image);
-        alert("We got your image! Let we cook your image!");
         console.log(
           `Your image URL is : https://firebasestorage.googleapis.com/v0/b/priceture.appspot.com/o/images%2F${imageName}?alt=media`
         );
@@ -323,7 +322,7 @@ function ImageUploadForm({ pageCount, setPageCount }) {
             <button
               className={
                 generateImageStatus === "process"
-                  ? "bg-slate-400 rounded-md text-white disabled:opacity-50 disabled:cursor-not-allowed"
+                  ? "bg-slate-400 rounded-md px-3 py-1 text-white disabled:opacity-50 disabled:cursor-not-allowed"
                   : "actionBtn"
               }
               type="submit"
@@ -339,7 +338,7 @@ function ImageUploadForm({ pageCount, setPageCount }) {
         </form>
         {generateImageStatus === "process" ? (
           <div>
-            We are asking AI to generate images for you, please wait 1-5 mins
+            We are asking AI to generate images for you, please wait 3-5 mins
           </div>
         ) : null}
       </div>
