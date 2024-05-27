@@ -58,4 +58,4 @@ The contract is using Chainlink's pricefeed to get the latest price on the selec
 ## Project Pitch 
 
 - Pitch Video - [Youtube](https://youtu.be/1QdGFrD9PKk)
-- Pitch Deck - 
+- Pitch Deck - [PDF](https://drive.google.com/file/d/1O2IrhsetzEsSfB9RkMsaF3_TP89K31Cw/view?usp=sharing)

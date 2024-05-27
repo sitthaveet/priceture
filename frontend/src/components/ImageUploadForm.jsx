@@ -1,5 +1,4 @@
-// import 'dotenv/config.js'
-import React, { useState, useContext } from "react"; // make sure to configure this
+import React, { useState, useContext } from "react";
 import { getStorage, ref, uploadBytes } from "firebase/storage";
 import { initializeApp } from "firebase/app";
 import { v4 as uuidv4 } from "uuid";
@@ -11,12 +10,11 @@ import axios from "axios";
 import Resizer from "react-image-file-resizer";
 
 function ImageUploadForm({ pageCount, setPageCount }) {
-  // setup stage for image upload
   const [image, setImage] = useState(null);
   const { metadataInContext, setMetadataInContext } = useContext(AppContext);
   const { priceArr, setPriceArr } = useContext(AppContext);
   const [generateImageStatus, setGenerateImageStatus] = useState(null);
-  const [progressGenerateImage, setProgressGenerateImage] = useState(0);
+  const [progressGenerateImage, setProgressGenerateImage] = useState(null);
   const { ipfsUrls, setIpfsUrls } = useContext(AppContext);
 
   // API token for Imagine API
@@ -67,6 +65,7 @@ function ImageUploadForm({ pageCount, setPageCount }) {
   const handleUpload = async (e) => {
     e.preventDefault();
     setGenerateImageStatus("process");
+    setProgressGenerateImage("uploading image")
     if (image) {
       // remove spaces from image name to prevent error in Midjourney API
       const imageNameWithOutSpace = image.name.replace(/\s/g, "");
@@ -158,11 +157,12 @@ function ImageUploadForm({ pageCount, setPageCount }) {
                   ": ",
                   responseData.data
                 );
-                setProgressGenerateImage(progressGenerateImage + 1);
+                setProgressGenerateImage("succesfully generate image number " + i);
 
                 // upload the image to firebase storage
                 async function uploadGenImageToFirebase() {
                   try {
+                    setProgressGenerateImage("uploading generated image to cloud");
                     const genImageUrl = responseData.data.upscaled_urls[0];
                     const response = await axios({
                       url: genImageUrl,
@@ -178,6 +178,7 @@ function ImageUploadForm({ pageCount, setPageCount }) {
                       "success upload generated image on Firebase of #",
                       i
                     );
+                    setProgressGenerateImage("successfully uploaded generated image number " + i + " to cloud");
 
                     // setup metadata for each round of image geneartion
                     let metadata = {
@@ -239,6 +240,7 @@ function ImageUploadForm({ pageCount, setPageCount }) {
         return new Promise(async (resolve, reject) => {
           // function to generate all images at the same time
           async function generateAllImages(prompts) {
+            setProgressGenerateImage("generating 4 images")
             const imagePromises = prompts.map((_, index) =>
               generateImage(index)
             );
@@ -389,10 +391,10 @@ function ImageUploadForm({ pageCount, setPageCount }) {
         {generateImageStatus === "process" ? (
           <div>
             <p>
-              We are asking AI to generate images for you 🍲 please wait 3-5
-              mins
+              It usually takes 3-10 mins. You can go grab a coffee ☕️ or take a nap 😴
             </p>
-            <p>Your image generation status ✅: {progressGenerateImage}/4</p>
+            <br></br>
+            <p>What we are doing behind the scene ✅:</p><p className='decoration-solid'>{progressGenerateImage}</p>
           </div>
         ) : null}
       </div>
