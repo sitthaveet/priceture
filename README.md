@@ -5,9 +5,11 @@
 
 
 # Priceture
-This project is developed during Hack'n Heights hackathon 2024
+This project is developed during Hack'n Heights hackathon 2024.
+
+
 Your price, your mood, your NFT.
-Transform your art into a mood-reflective masterpiece that shifts with the emotional currents you care about - prices, sports teams, and more.
+DynamicNFTs Platform which can transform your art, selfie, or pet photos into a mood-reflective NFT that changes based on the things you care about eg. prices, sports teams, and more.
 
 > Try our product: [here](https://pricetureforhacknheights.vercel.app/)
 
@@ -51,3 +53,9 @@ The contract is using Chainlink's pricefeed to get the latest price on the selec
 
 - Polygon Amoy Testnet: [0xF5d4F62Ea2Eb520d6b854Eb910d6605Fc59631E8](https://amoy.polygonscan.com/address/0xf5d4f62ea2eb520d6b854eb910d6605fc59631e8)
 - Chainlink Automation: [0x50cc4ce7b707c3fbc0edbf459bcdb71fa990554c](https://amoy.polygonscan.com/address/0x50cc4ce7b707c3fbc0edbf459bcdb71fa990554c)
+
+
+## Project Pitch 
+
+- Pitch Video - [Youtube](https://youtu.be/1QdGFrD9PKk)
+- Pitch Deck - 
